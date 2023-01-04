@@ -1,6 +1,6 @@
 {
-    "name": "Lab5Games.UI",
-    "rootNamespace": "Lab5Games.UI",
+    "name": "Lab5Games.Events",
+    "rootNamespace": "Lab5Games.Events",
     "references": [],
     "includePlatforms": [
         "Android",

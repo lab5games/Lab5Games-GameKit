@@ -7,7 +7,9 @@ namespace Lab5Games.UI
 {
     // https://qiita.com/rarudonet/items/52de2fd3a47b6e0a2b1f
 
-    [AddComponentMenu("UI/Effects/Saturation")]
+    [AddComponentMenu(
+        UIConstants.MenuNameEffects + "/Saturation"
+        )]
     [ExecuteAlways, DisallowMultipleComponent]
     [RequireComponent(typeof(Graphic))]
     public class UISaturation : UIBehaviour, IMaterialModifier
