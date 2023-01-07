@@ -16,9 +16,6 @@ namespace Lab5Games.UI
     // references
     // https://youtu.be/Ll3yujn9GVQ?t=217
     // https://www.cnblogs.com/movin2333/p/15201480.html
-
-    [AddComponentMenu(
-        UIConstants.MenuNameEffects + "/UI Tweener")]
     public class UITweener : MonoBehaviour
     {
 

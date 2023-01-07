@@ -6,9 +6,6 @@ namespace Lab5Games.UI
 {
     // references:
     // https://www.youtube.com/watch?v=211t6r12XPQ&list=RDCMUCR35rzd4LLomtQout93gi0w&index=16
-
-    [AddComponentMenu(
-        UIConstants.MenuNameToolkit + "Tab Button")]
     public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] TabGroup tabGroup;
@@ -30,6 +27,9 @@ namespace Lab5Games.UI
 
         private void Start()
         {
+            if (tabGroup == null)
+                tabGroup = GetComponentInParent<TabGroup>();
+
             tabGroup.Subscribe(this);
         }
 

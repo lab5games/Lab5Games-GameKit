@@ -5,9 +5,6 @@ namespace Lab5Games.UI
 {
     // references:
     // https://www.youtube.com/watch?v=211t6r12XPQ&list=RDCMUCR35rzd4LLomtQout93gi0w&index=16
-
-    [AddComponentMenu(
-        UIConstants.MenuNameToolkit + "/Tab Group")]
     public class TabGroup : MonoBehaviour
     {
         protected List<TabButton> tabButtons;

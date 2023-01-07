@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace Lab5Games.UI
 {
-    [AddComponentMenu("UI/Lab5Games UI/No Drawing Graphic")]
     [RequireComponent(typeof(CanvasRenderer))]
     public class NoDrawingGraphic : Graphic
     {
