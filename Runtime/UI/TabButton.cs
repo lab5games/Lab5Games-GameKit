@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -8,12 +9,14 @@ namespace Lab5Games.UI
     // https://www.youtube.com/watch?v=211t6r12XPQ&list=RDCMUCR35rzd4LLomtQout93gi0w&index=16
     public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] TabGroup tabGroup;
-
         public UnityEvent onTabEnter;
         public UnityEvent onTabSelected;
         public UnityEvent onTabDeselected;
         public UnityEvent onTabReset;
+
+        public event Action<TabButton> onPointerEnter;
+        public event Action<TabButton> onPointerExit;
+        public event Action<TabButton> onPointerClick;
 
         public virtual void Select()
         {
@@ -25,27 +28,19 @@ namespace Lab5Games.UI
             onTabDeselected?.Invoke();
         }
 
-        private void Start()
-        {
-            if (tabGroup == null)
-                tabGroup = GetComponentInParent<TabGroup>();
-
-            tabGroup.Subscribe(this);
-        }
-
         public virtual void OnPointerClick(PointerEventData eventData)
         {
-            tabGroup.OnTabSelected(this);
+            onPointerClick?.Invoke(this);
         }
 
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            tabGroup.OnTabEnter(this);
+            onPointerEnter?.Invoke(this);
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)
         {
-            tabGroup.OnTabExit(this);
+            onPointerExit?.Invoke(this);
         }
     }
 }
