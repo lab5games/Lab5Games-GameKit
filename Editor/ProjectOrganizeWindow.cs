@@ -71,9 +71,10 @@ namespace Lab5Games.Ediotr
                 "Assets/{0}/Content/Prefabs",
                 "Assets/{0}/Content/Scenes",
                 "Assets/{0}/Content/Scriptables",
-                "Assets/{0}/Content/Settings",
+     
 
                 "Assets/{0}/Doc",
+                "Assets/{0}/Settings",
 
                 "Assets/ThirdParty"
             };
