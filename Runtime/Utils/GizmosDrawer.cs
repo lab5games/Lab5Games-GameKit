@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -336,12 +337,66 @@ namespace Lab5Games
             }
         }
 
-        public static void DrawSphere(Vector3 center, float radius = 1f, bool wired = false, Color color = default(Color))
+        public static void DrawSphere(Vector3 center, float radius = 1f, Color color = default(Color))
         {
             using (new ColorScope(color))
             {
-                if (wired) Gizmos.DrawWireSphere(center, radius);
-                else Gizmos.DrawSphere(center, radius);
+                Gizmos.DrawSphere(center, radius);
+            }
+        }
+
+        public static void DrawWireSphere(Vector3 center, float radius = 1f, int segments = 32, Color color = default(Color))
+        {
+            int x_segments = segments;
+            int y_segments = segments;
+
+            int indx = 0;
+            Vector3[] pts = new Vector3[(x_segments+1) * (y_segments+1)];
+
+            for(int y=0; y<=y_segments; y++)
+            {
+                for(int x=0; x<=x_segments; x++)
+                {
+                    float xSegment = (float)x / (float)x_segments;
+                    float ySegment = (float)y / (float)y_segments;
+                    
+                    float xPos = Mathf.Cos(xSegment * 2 * Mathf.PI) * Mathf.Sin(ySegment * Mathf.PI);
+                    float yPos = Mathf.Cos(ySegment * Mathf.PI);
+                    float zPos = Mathf.Sin(xSegment * 2 * Mathf.PI) * Mathf.Sin(ySegment * Mathf.PI);
+
+                    pts[indx] = new Vector3(xPos, yPos, zPos);
+                    ++indx;
+                }
+            }
+
+            List<int> triangles = new List<int>();
+
+            for(int i=0; i<y_segments; i++)
+            {
+                for(int j=0; j<x_segments; j++)
+                {
+                    triangles.Add(i * (x_segments + 1) + j);
+                    triangles.Add((i + 1) * (x_segments + 1) + j);
+                    triangles.Add((i + 1) * (x_segments + 1) + j + 1);
+                    triangles.Add(i * (x_segments + 1) + j);
+                    triangles.Add((i + 1) * (x_segments + 1) + j + 1);
+                    triangles.Add(i * (x_segments + 1) + j + 1);
+                }
+            }
+
+            for(int i=0; i<triangles.Count-3; i+=3)
+            {
+                int indx_0 = triangles[i + 0];
+                int indx_1 = triangles[i + 1];
+                int indx_2 = triangles[i + 2];
+
+                Vector3 p0 = pts[indx_0];
+                Vector3 p1 = pts[indx_1];
+                Vector3 p2 = pts[indx_2];
+
+                DrawLine(p0, p1, color);
+                DrawLine(p1, p2, color);
+                DrawLine(p2, p0, color);
             }
         }
 

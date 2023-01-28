@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
-using NUnit.Framework.Constraints;
 using System;
 
 namespace Lab5Games.Ediotr
@@ -17,7 +16,6 @@ namespace Lab5Games.Ediotr
         private string m_InputProjectName = "_Project";
 
 
-        [MenuItem(EditorConstants.MenuNameBase + "/Project Organization")]
         private static void CreateWindow()
         {
             var window = GetWindow<ProjectOrganizeWindow>(true, "Project Organization");

@@ -4,8 +4,16 @@ namespace Lab5Games
 {
     public static class EqualityExtensions
     {
+        public static bool IsNullable(this object obj)
+        {
+            return Nullable.GetUnderlyingType(obj.GetType()) != null;
+        }
+
         public static bool IsNull(this object obj)
         {
+            if (!obj.IsNullable())
+                return false;
+
             return ReferenceEquals(obj, null);
         }
 
