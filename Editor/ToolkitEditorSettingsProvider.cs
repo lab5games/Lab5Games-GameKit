@@ -78,7 +78,16 @@ namespace Lab5Games.Ediotr
             }
 
             EditorGUILayout.Space(6);
+            // Project organization
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PrefixLabel("Project Organization");
+            if(GUILayout.Button("Organize", GUILayout.Width(80)))
+            {
+                ProjectOrganization.Organize();
+            }
+            EditorGUILayout.EndHorizontal();
 
+            // Cleanup save data
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Save Path");
             EditorGUILayout.LabelField(AppConfig.savePath);
