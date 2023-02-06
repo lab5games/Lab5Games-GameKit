@@ -1,5 +1,5 @@
 {
-    "name": "Lab5Games.Toolkit.Ediotr",
+    "name": "Lab5Games.Kit.Ediotr",
     "rootNamespace": "Lab5Games.Ediotr",
     "references": [
         "GUID:7ab77a31287a78c4ab000eb1b627a567"
