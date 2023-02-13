@@ -3,7 +3,7 @@
 namespace Lab5Games.Events.Scriptable
 {
     [AddComponentMenu(
-        ScriptableEventConstants.MenuNameBase + "/Void ScriptableEventListener")]
+        ScriptableEventConstants.MenuNameBase + "/Void Event Listener")]
     public class VoidScriptableEventListener : BaseScriptableEventListener<Void, VoidScriptableEvent, VoidUnityEvent>
     {
     }

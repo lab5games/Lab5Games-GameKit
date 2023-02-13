@@ -9,6 +9,6 @@ namespace Lab5Games.Events.Scriptable
 
     [CreateAssetMenu(
         fileName = "New BooleanScriptableEvent",
-        menuName = ScriptableEventConstants.MenuNameBase + "/Boolean Scriptable Event")]
+        menuName = ScriptableEventConstants.MenuNameBase + "/Boolean Event")]
     public class BooleanScriptableEvent : BaseScriptableEvent<bool> { }
 }

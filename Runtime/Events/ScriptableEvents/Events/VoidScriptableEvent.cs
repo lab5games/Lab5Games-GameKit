@@ -13,7 +13,7 @@ namespace Lab5Games.Events.Scriptable
 
     [CreateAssetMenu(
         fileName = "New VoidScriptableEvent",
-        menuName = ScriptableEventConstants.MenuNameBase + "/Void Scriptable Event")]
+        menuName = ScriptableEventConstants.MenuNameBase + "/Void Event")]
     public class VoidScriptableEvent : BaseScriptableEvent<Void>
     {
         public void Raise() => Raise(Void.empty);
