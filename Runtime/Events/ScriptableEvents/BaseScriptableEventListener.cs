@@ -8,7 +8,7 @@ namespace Lab5Games.Events.Scriptable
         where U : UnityEvent<T>
     {
         [SerializeField] private E Event;
-        [SerializeField] private U onRaised;
+        [SerializeField] private U onRaise;
 
         void OnEnable()
         {
@@ -20,9 +20,9 @@ namespace Lab5Games.Events.Scriptable
             Event?.RemoveListener(this);
         }
 
-        public void OnRaised(T arg)
+        public void OnRaise(T arg)
         {
-            onRaised?.Invoke(arg);
+            onRaise?.Invoke(arg);
         }
     }
 
@@ -32,6 +32,6 @@ namespace Lab5Games.Events.Scriptable
 
     public interface IScriptableEventListener<T>
     {
-        void OnRaised(T arg);
+        void OnRaise(T arg);
     }
 }

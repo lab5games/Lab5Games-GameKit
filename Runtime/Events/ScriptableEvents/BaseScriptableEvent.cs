@@ -28,7 +28,7 @@ namespace Lab5Games.Events.Scriptable
 
         public void AddListener(IScriptableEventListener<T> listener)
         {
-            AddListener(listener.OnRaised);
+            AddListener(listener.OnRaise);
         }
 
         public void AddListener(Action<T> listener)
@@ -41,7 +41,7 @@ namespace Lab5Games.Events.Scriptable
 
         public void RemoveListener(IScriptableEventListener<T> removeListener)
         {
-            RemoveListener(removeListener.OnRaised);
+            RemoveListener(removeListener.OnRaise);
         }
 
         public void RemoveListener(Action<T> removeListener)
