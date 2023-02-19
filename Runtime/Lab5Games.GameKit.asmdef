@@ -1,11 +1,15 @@
 {
-    "name": "Lab5Games.Kit.Ediotr",
-    "rootNamespace": "Lab5Games.Ediotr",
+    "name": "Lab5Games.GameKit",
+    "rootNamespace": "Lab5Games",
     "references": [
-        "GUID:7ab77a31287a78c4ab000eb1b627a567"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [
-        "Editor"
+        "Android",
+        "Editor",
+        "iOS",
+        "WindowsStandalone32",
+        "WindowsStandalone64"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

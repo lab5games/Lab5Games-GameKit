@@ -8,7 +8,7 @@ namespace Lab5Games
     {
         public static string savePath => GetSavePath();
 
-        public static string readonlyPath => GetReadonlyPath();
+        public static string readonlyPath => GetStreamingAssetsPath();
 
 
         private static string GetSavePath()
@@ -29,7 +29,7 @@ namespace Lab5Games
             return path;
         }
 
-        private static string GetReadonlyPath()
+        private static string GetStreamingAssetsPath()
         {
             return Application.streamingAssetsPath;
         }

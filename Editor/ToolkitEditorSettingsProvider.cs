@@ -15,7 +15,7 @@ namespace Lab5Games.Ediotr
     {
         ToolkitEditorSettings m_Settings;
         
-        const string SettingPath = "Project/Lab5 Kit";
+        const string SettingPath = "Project/Lab5 GameKit";
         
         public static readonly string SettingAssetPath = Path.Combine(Environment.CurrentDirectory, "ProjectSettings/Lab5ToolkitSettings.json");
 
