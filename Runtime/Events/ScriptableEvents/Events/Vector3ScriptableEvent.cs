@@ -7,7 +7,7 @@ namespace Lab5Games.Events.Scriptable
     public class Vector3UnityEvent : UnityEvent<Vector3> { }
 
     [CreateAssetMenu(
-        fileName = "New Vector3ScriptableEvent",
-        menuName = ScriptableEventConstants.MenuNameBase + "/Vector3 Event")]
+        fileName = "New Vector3 Scriptable Event",
+        menuName = "Scriptable Events/Vector3 Event")]
     public class Vector3ScriptableEvent : BaseScriptableEvent<Vector3> { }
 }

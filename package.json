@@ -1,6 +1,6 @@
 {
-    "name": "com.lab5games.toolkit",
-    "version": "1.0.13",
-    "displayName": "Lab5Games Kit",
+    "name": "com.lab5games.gamekit",
+    "version": "1.0.14",
+    "displayName": "Lab5Games Game Kit",
     "unity": "2021.3"
 }
