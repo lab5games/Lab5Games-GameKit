@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Reflection;
 
 namespace Lab5Games
 {
@@ -35,6 +37,16 @@ namespace Lab5Games
                 {
                     m_Instance = FindObjectOfType<T>();
 
+                    if (m_Instance == null)
+                    {
+                        LazyInstantiateAttribute lazyInstantiateAtt = (LazyInstantiateAttribute)Attribute.GetCustomAttribute(typeof(T), typeof(LazyInstantiateAttribute));
+
+                        if (lazyInstantiateAtt != null)
+                        {
+                            GameObject go = new GameObject($"[ComponentSingleton] {typeof(T).Name}");
+                            m_Instance = go.AddComponent<T>();
+                        }
+                    }
 
                     if(m_Instance != null)
                     {
