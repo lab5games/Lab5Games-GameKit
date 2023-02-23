@@ -37,10 +37,10 @@ namespace Lab5Games.Ediotr
                 "Assets/{0}/Doc",
                 "Assets/{0}/Settings",
 
-                "Assets/ThirdParty"
+                "Assets/Third Party"
             };
 
-            string rootName = "_" + Application.productName;
+            string rootName = "_ " + Application.productName;
 
             foreach(string folder in folders)
             {
