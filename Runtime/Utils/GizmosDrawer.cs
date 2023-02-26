@@ -345,7 +345,7 @@ namespace Lab5Games
             }
         }
 
-        public static void DrawWireSphere(Vector3 center, float radius = 1f, int segments = 32, Color color = default(Color))
+        public static void DrawWireSphere(Vector3 center, float radius = 1f, int segments = 16, Color color = default(Color))
         {
             int x_segments = segments;
             int y_segments = segments;
@@ -557,6 +557,14 @@ namespace Lab5Games
         #endregion // Handles
 
         #region Cube
+        public static void DrawCube(Vector3 origin, Vector3 size, Color color = default(Color))
+        {
+            using(new ColorScope(color))
+            {
+                Gizmos.DrawCube(origin, size);
+            }
+        }
+
         public static void DrawBox(Vector3 origin, Vector3 halfExtents, Quaternion orientation, Color color = default(Color))
         {
             DrawBox(new Box(origin, halfExtents, orientation), color);
