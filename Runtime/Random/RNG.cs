@@ -4,16 +4,18 @@ namespace Lab5Games
 {
     public static class RNG
     {
-        public static RandomTable Table { get; private set; }
+        public delegate float RandomNumberDelegate();
 
-        public static void Init(RandomTable randomTable)
+        public static RandomNumberDelegate onGenerateNumber;
+
+        static RNG()
         {
-            Table = randomTable;
+            onGenerateNumber += () => { return UnityEngine.Random.value; };
         }
 
         public static float Next()
         {
-            return Table.Next();
+            return onGenerateNumber.Invoke();            
         }
 
         public static float Next(float min, float max)
@@ -71,35 +73,5 @@ namespace Lab5Games
                 Mathf.Sin(a) * Mathf.Sin(b),
                 Mathf.Cos(a));
         }
-
-        #region Gaussian
-        public static float NextGaussian(float mean, float dev, float min, float max)
-        {
-            float x;
-            do
-            {
-                x = Next(mean, dev);
-            } while (x < min || x > max);
-            return x;
-        }
-
-        public static float NextGaussian(float mean, float dev)
-        {
-            return mean + Next() * dev;
-        }
-
-        public static float NextGaussian()
-        {
-            float v1, v2, s;
-            do
-            {
-                v1 = 2.0f * RNG.Next() - 1.0f;
-                v2 = 2.0f * RNG.Next() - 1.0f;
-                s = v1 * v1 + v2 * v2;
-            } while (s >= 1.0f || s == 0f);
-            s = Mathf.Sqrt((-2.0f * Mathf.Log(s)) / s);
-            return v1 * s;
-        }
-        #endregion
     }
 }
