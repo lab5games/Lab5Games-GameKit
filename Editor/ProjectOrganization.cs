@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -40,7 +41,11 @@ namespace Lab5Games.Ediotr
                 "Assets/Third Party"
             };
 
-            string rootName = "_ " + Application.productName;
+            string projectName = new string(Application.productName.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+
+            string rootName = "_" + projectName;
 
             foreach(string folder in folders)
             {
