@@ -78,37 +78,13 @@ namespace Lab5Games.Ediotr
             }
 
             EditorGUILayout.Space(6);
+            
             // Project organization
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Project Organization");
             if(GUILayout.Button("Organize", GUILayout.Width(80)))
             {
                 ProjectOrganization.Organize();
-            }
-            EditorGUILayout.EndHorizontal();
-
-            // Cleanup save data
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel("Save Path");
-            EditorGUILayout.LabelField(AppConfig.savePath);
-            if (GUILayout.Button("Cleanup", GUILayout.Width(80)))
-            {
-                DirectoryInfo dir = new DirectoryInfo(AppConfig.savePath);
-
-                if(dir.Exists)
-                {
-                    foreach(var file in dir.GetFiles())
-                    {
-                        file.Delete();
-                    }
-
-                    foreach(var subDir in dir.GetDirectories())
-                    {
-                        subDir.Delete(true);
-                    }
-                }
-
-                Debug.LogWarning("Cleanup save path");
             }
             EditorGUILayout.EndHorizontal();
         }
