@@ -25,7 +25,6 @@ namespace Lab5Games
             onLog = new LogDelegate(PrintToConsole);
         }
 
-
         public static void Log(object obj, LogLevel level, UnityEngine.Object context = null)
         {
             Log(obj.ToString(), level, context);

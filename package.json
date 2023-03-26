@@ -1,11 +1,9 @@
 {
-    "name": "com.lab5games.gamekit",
-    "version": "1.0.20",
-    "displayName": "Lab5Games Game Kit",
-    "unity": "2021.3",
-
-    "dependencies": 
-    {
-        "com.unity.nuget.newtonsoft-json" : "3.0.2"
-    }
+  "name": "com.lab5games.gamekit",
+  "version": "1.0.22",
+  "displayName": "Lab5Games Game Kit",
+  "unity": "2021.3",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
+  }
 }

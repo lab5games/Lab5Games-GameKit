@@ -6,16 +6,21 @@ namespace Lab5Games
     {
         public delegate float RandomNumberDelegate();
 
-        public static RandomNumberDelegate onGenerateNumber;
+        public static RandomNumberDelegate onGetRandomNumber;
 
         static RNG()
         {
-            onGenerateNumber += () => { return UnityEngine.Random.value; };
+            onGetRandomNumber = new RandomNumberDelegate(GetDefaultRandomValue);
+        }
+
+        static float GetDefaultRandomValue()
+        {
+            return UnityEngine.Random.value;
         }
 
         public static float Next()
         {
-            return onGenerateNumber.Invoke();            
+            return onGetRandomNumber.Invoke();            
         }
 
         public static float Next(float min, float max)

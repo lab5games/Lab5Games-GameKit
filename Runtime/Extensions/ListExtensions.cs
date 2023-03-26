@@ -80,54 +80,44 @@ namespace Lab5Games
             return true;
         }
 
-        // 聯集。包含inList和other中的所有元素
-        public static List<T> Union<T>(this IList<T> inList, IList<T> other)
+        // 聯集。包含 a-list 和 b-list 中的所有元素
+        public static List<T> Union<T>(this IList<T> a, IList<T> b)
         {
-            if (other.IsNull())
-                throw new ArgumentNullException("Other list is null");
+            List<T> result = new List<T>();
 
+            foreach (var item in a)
+                result.AddUnique(item);
 
-            List<T> outList = new List<T>();
+            foreach (var item in b)
+                result.AddUnique(item);
 
-            foreach (var item in inList)
-                outList.AddUnique(item);
-
-            foreach (var item in other)
-                outList.AddUnique(item);
-
-            return outList;
+            return result;
         }
 
-        // 交集。inList中有，且other中也有
-        public static List<T> Intersect<T>(this IList<T> inList, IList<T> other)
+        // 交集。a-list 中有，且 b-list 中也有
+        public static List<T> Intersect<T>(this IList<T> a, IList<T> b)
         {
-            if (other.IsNull())
-                throw new ArgumentNullException("Other list is null");
+            List<T> result = new List<T>();
 
-            List<T> outList = new List<T>();
-
-            foreach (var item in inList)
+            foreach (var item in a)
             {
-                if (other.Contains(item))
+                if (b.Contains(item))
                 {
-                    outList.AddUnique(item);
+                    result.AddUnique(item);
                 }
             }
 
-            return outList;
+            return result;
         }
 
-        // 差集。inList中有，而other中沒有
-        public static List<T> Except<T>(this IList<T> inList, IList<T> other)
+        // 差集。a-list 中有，而 b-list 中沒有
+        public static List<T> Except<T>(this IList<T> a, IList<T> b)
         {
-            if (other.IsNull())
-                throw new ArgumentNullException("Other list is null");
-
             List<T> outList = new List<T>();
 
-            foreach (var item in inList)
+            foreach (var item in a)
             {
-                if (!other.Contains(item))
+                if (!b.Contains(item))
                 {
                     outList.AddUnique(item);
                 }
@@ -139,12 +129,12 @@ namespace Lab5Games
         // This method is used to return the unique element(s) from the respective collection.
         public static List<T> Distinct<T>(this IList<T> inList)
         {
-            List<T> outList = new List<T>();
+            List<T> result = new List<T>();
 
             foreach (var item in inList)
-                outList.AddUnique(item);
+                result.AddUnique(item);
 
-            return outList;
+            return result;
         }
 
         public static List<T> Shuffle<T>(this IList<T> inList)

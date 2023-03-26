@@ -1,4 +1,4 @@
-Shader "Lab5Games/Skybox/CicularGradient"
+Shader "Lab5 Games/Skybox/Cicular Gradient"
 {
     Properties
     {
