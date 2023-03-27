@@ -29,7 +29,7 @@ namespace Lab5Games
             }
         }
 
-        public static bool Equals(this float a, float b, float EPSILON = float.Epsilon)
+        public static bool FloatEquals(this float a, float b, float EPSILON = float.Epsilon)
         {
             return UnityEngine.Mathf.Abs(a - b) < EPSILON;
         }
