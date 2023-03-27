@@ -28,5 +28,10 @@ namespace Lab5Games
                 return ReferenceEquals(obj, other);
             }
         }
+
+        public static bool Equals(this float a, float b, float EPSILON = float.Epsilon)
+        {
+            return UnityEngine.Mathf.Abs(a - b) < EPSILON;
+        }
     }
 }
